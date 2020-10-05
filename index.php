@@ -24,41 +24,82 @@
           <div class="row bg-dark">
             <div class="card" style="width: 50rem;">
               <div class="card-body">
-                <form>
+                <form action="result.php" method="post">
                   <div class="form-group">
                     <label for="nama">Nama</label>
-                    <input type="text" class="form-control" id="nama" placeholder="Contoh: Alexander Knocker">
+                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Contoh: Alexander Knocker">
+                    <?php
+                      if(isset($_GET['err'])){
+                        $err = $_GET['err'];
+                        if($err[0]=="1"){
+                    ?>
+                          <div class="alert alert-danger mt-2" role="alert">
+                            Nama tidak boleh kosong!
+                          </div>
+                    <?php
+                        }
+                      }
+                    ?>
                   </div>
                   <div class="form-group">
                     <label for="alamat">Alamat</label>
-                    <textarea class="form-control" id="alamat" rows="3" placeholder="Contoh: Jl. Panglima Sudirman 1A Malang, Jawa Timur"></textarea>
+                    <textarea class="form-control" name="alamat" id="alamat" rows="3" placeholder="Contoh: Jl. Panglima Sudirman 1A Malang, Jawa Timur"></textarea>
+                    <?php
+                      if(isset($_GET['err'])){
+                        $err = $_GET['err'];
+                        if($err[1]=="1"){
+                    ?>
+                          <div class="alert alert-danger mt-2" role="alert">
+                            Alamat tidak boleh kosong!
+                          </div>
+                    <?php
+                        }
+                      }
+                    ?>
                   </div>
                   <div class="form-group">
                     <label for="tempat">Tempat</label>
-                    <input type="text" class="form-control" id="tempat" placeholder="Contoh: Politeknik Negeri Malang">
+                    <input type="text" class="form-control" name="tempat" id="tempat" placeholder="Contoh: Politeknik Negeri Malang">
+                    <?php
+                      if(isset($_GET['err'])){
+                        $err = $_GET['err'];
+                        if($err[2]=="1"){
+                    ?>
+                          <div class="alert alert-danger mt-2" role="alert">
+                            Tempat tidak boleh kosong!
+                          </div>
+                    <?php
+                        }
+                      }
+                    ?>
                   </div>
                   <div class="form-group">
                     <label for="jk">Jenis Kelamin</label>
-                    <select class="form-control" id="jk">
+                    <select class="form-control" name="jk" id="jk">
                       <option>Pria</option>
                       <option>Wanita</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="usia">Usia</label>
-                    <input type="number" class="form-control" id="usia" placeholder="Contoh: 19">
+                    <input type="number" class="form-control" name="usia" id="usia" placeholder="Contoh: 19">
+                    <?php
+                      if(isset($_GET['err'])){
+                        $err = $_GET['err'];
+                        if($err[3]=="1"){
+                    ?>
+                          <div class="alert alert-danger mt-2" role="alert">
+                            Usia tidak boleh kosong!
+                          </div>
+                    <?php
+                        }
+                      }
+                    ?>
                   </div>
                   <button type="submit" class="btn" style="background-color:#8853de;color:white">Submit</button>
                 </form>
               </div>
             </div>
-            <!-- <div class="card" style="width: 50rem;">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-
-                </li>
-              </ul>
-            </div> -->
           </div>
         </div>
       </div>
