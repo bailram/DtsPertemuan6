@@ -6,24 +6,30 @@
   $usia = $_POST['usia'];
   $err = "";
   if($nama==""){
-    $err+="1";
+    $err=$err."1";
   }else {
-    $err+="0";
+    $err=$err."0";
   }
   if($alamat==""){
-    $err+="1";
+    $err=$err."1";
   }else {
-    $err+="0";
+    $err=$err."0";
   }
   if($tempat==""){
-    $err+="1";
+    $err=$err."1";
   }else {
-    $err+="0";
+    $err=$err."0";
   }
   if($usia==""){
-    $err+="1";
+    $err=$err."1";
   }else {
-    $err+="0";
+    $err=$err."0";
+  }
+  for($x=0; $x<strlen($err);$x++){
+    if($err[$x]=="1"){
+      header("location:index.php?err=".$err);
+    }
+    // echo $err[$x]."<br>";
   }
 ?>
 <!Doctype html>
@@ -43,15 +49,15 @@
         <div class="card">
           <h4 class="card-header" style="background-color:#6938b8; color:white">Biodata</h4>
           <div class="card-body">
-            <h3 class="card-title">Alexander Knocker</h3>
+            <h3 class="card-title border-bottom"><?=$nama?></h3>
             <h6 class="card-title">Alamat</h6>
-            <p class="card-text">Jlaksdoaskdoawkdadopapkwdpo</p>
+            <p class="card-text"><?=$alamat?></p>
             <h6 class="card-title">Tempat</h6>
-            <p class="card-text">Politeknik Negeri Malang</p>
+            <p class="card-text"><?=$tempat?></p>
             <h6 class="card-title">Jenis Kelamin</h6>
-            <p class="card-text">Pria</p>
+            <p class="card-text"><?=$jk?></p>
             <h6 class="card-title">Usia</h6>
-            <p class="card-text">21 Tahun</p>
+            <p class="card-text"><?=$usia." Tahun"?></p>
             <a href="./index.php" class="btn" style="background-color:#8853de;color:white">Kembali</a>
           </div>
         </div>
